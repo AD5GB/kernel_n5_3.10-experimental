@@ -92,23 +92,23 @@ static int compare_extable(const void *a, const void *b)
 static void
 do_func(Elf_Ehdr *ehdr, char const *const fname, table_sort_t custom_sort)
 {
-	Elf_Shdr *shdr;
-	Elf_Shdr *shstrtab_sec;
+	Elf_Shdr *shdr = NULL;
+	Elf_Shdr *shstrtab_sec = NULL;
 	Elf_Shdr *strtab_sec = NULL;
 	Elf_Shdr *symtab_sec = NULL;
 	Elf_Shdr *extab_sec = NULL;
-	Elf_Sym *sym;
-	Elf_Sym *sort_needed_sym;
-	Elf_Shdr *sort_needed_sec;
+	Elf_Sym *sym = NULL;
+	Elf_Sym *sort_needed_sym = NULL;
+	Elf_Shdr *sort_needed_sec = NULL;
 	Elf_Rel *relocs = NULL;
-	int relocs_size;
-	uint32_t *sort_done_location;
-	const char *secstrtab;
-	const char *strtab;
-	char *extab_image;
+	int relocs_size = 0;
+	uint32_t *sort_done_location = NULL;
+	const char *secstrtab = NULL;
+	const char *strtab = NULL;
+	char *extab_image = NULL;
 	int extab_index = 0;
-	int i;
-	int idx;
+	int i = 0;
+	int idx = 0;
 
 	shdr = (Elf_Shdr *)((char *)ehdr + _r(&ehdr->e_shoff));
 	shstrtab_sec = shdr + r2(&ehdr->e_shstrndx);

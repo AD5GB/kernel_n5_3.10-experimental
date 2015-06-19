@@ -4,6 +4,9 @@
 
 # Object file lists.
 
+# RDD - DANGEROUS HACK!
+KBUILD_CFLAGS += -Wno-format
+
 obj-$(CONFIG_USB_SERIAL)			+= usbserial.o
 
 usbserial-y := usb-serial.o generic.o bus.o

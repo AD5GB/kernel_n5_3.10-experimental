@@ -35,6 +35,8 @@
 #include <soc/qcom/scm-boot.h>
 #include <asm/suspend.h>
 #include <asm/cacheflush.h>
+/* RDD ?? :/ */
+#include <asm/uaccess.h>
 #ifdef CONFIG_VFP
 #include <asm/vfp.h>
 #endif
@@ -53,6 +55,8 @@
 
 #define MAX_BUF_SIZE  512
 
+/*  RDD :/  */
+int64_t sched_clock(void);
 static int msm_pm_debug_mask = 1;
 module_param_named(
 	debug_mask, msm_pm_debug_mask, int, S_IRUGO | S_IWUSR | S_IWGRP
