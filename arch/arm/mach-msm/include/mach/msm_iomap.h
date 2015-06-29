@@ -57,6 +57,14 @@
 #define MSM_SAW0_BASE		IOMEM(0xFA008000)	/*  4K	*/
 #define MSM_SAW1_BASE		IOMEM(0xFA009000)	/*  4K	*/
 
+/* RDD */
+#ifdef CONFIG_ARCH_MSM9625
+#define MSM_IMEM_BASE		IOMEM(0xFB601800)	/* 6K -> 8K */
+#endif
+/*RDD  Errr --- huh? */
+#define MSM_IMEM_BASE		IOMEM(0xFB601800)	/* 6K -> 8K */
+/* RDD - END */
+
 #define MSM_ACC0_BASE		IOMEM(0xFA00B000)	/*  4K	*/
 #define MSM_ACC1_BASE		IOMEM(0xFA00C000)	/*  4K	*/
 #define MSM_ACC2_BASE		IOMEM(0xFA00D000)	/*  4K	*/
@@ -85,6 +93,16 @@
 #define MSM_RPM_MPM_BASE	IOMEM(0xFA802000)	/*  4K	*/
 #define MSM_AD5_BASE		IOMEM(0xFA900000)	/*  13M (D00000)
 							  0xFB600000 */
+/* RDD */
+/* MSM9625 has unaligned imem so we need to map excess 2K virtually
+ * to get the correct mapping. This should not be done for any
+ * other chipset under normal circumstances.
+ */
+#ifdef CONFIG_ARCH_MSM9625
+#define MSM_IMEM_BASE		IOMEM(0xFB601800)	/* 6K -> 8K */
+#endif
+/* RDD - END */
+
 #define MSM_STRONGLY_ORDERED_PAGE	0xFA0F0000
 #define MSM8625_CPU_PHYS		0x0FE00000
 

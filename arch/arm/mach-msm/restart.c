@@ -30,10 +30,14 @@
 #include <asm/cacheflush.h>
 
 #include <mach/msm_iomap.h>
-#include <mach/restart.h>
+/* RDD #include <mach/restart.h> 
 #include <mach/socinfo.h>
-#include <mach/irqs.h>
 #include <mach/scm.h>
+*/
+#include <soc/qcom/restart.h>
+#include <soc/qcom/socinfo.h>
+#include <soc/qcom/scm.h>
+#include <mach/irqs.h>
 #include "msm_watchdog.h"
 #include "timer.h"
 #include "wdog_debug.h"
@@ -95,7 +99,8 @@ static struct notifier_block panic_blk = {
 	.notifier_call	= panic_prep_restart,
 };
 
-static void set_dload_mode(int on)
+/* RDD static void set_dload_mode(int on) */
+void set_dload_mode(int on)
 {
 	if (dload_mode_addr) {
 		__raw_writel(on ? 0xE47B337D : 0, dload_mode_addr);
