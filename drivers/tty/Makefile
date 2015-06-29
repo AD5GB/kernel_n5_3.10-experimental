@@ -1,3 +1,6 @@
+# RDD - DANGEROUS HACKS!
+KBUILD_CFLAGS += -Wno-array-bounds
+
 obj-$(CONFIG_TTY)		+= tty_io.o n_tty.o tty_ioctl.o tty_ldisc.o \
 				   tty_buffer.o tty_port.o tty_mutex.o
 obj-$(CONFIG_LEGACY_PTYS)	+= pty.o
